@@ -1,0 +1,83 @@
+.ant-table-thead > tr > th.address {
+    background-color: rgb(255, 255, 255);
+}
+
+.ant-table-thead > tr > th.eth {
+    background-color: rgb(195, 104, 255);
+    color: white;
+}
+
+.ant-table-thead > tr > th.arb {
+    background-color: rgb(166, 93, 214);
+    color: white;
+}
+
+.ant-table-thead > tr > th.op {
+    background-color: rgb(153, 82, 201);
+    color: white;
+}
+
+.ant-table-thead > tr > th.matic {
+    background-color: rgb(133, 67, 177);
+    color: white;
+}
+
+.ant-table-thead > tr > th.bsc {
+    background-color: rgb(116, 57, 155);
+    color: white;
+}
+
+.ant-table-thead > tr > th.zksync {
+    background-color: rgb(83, 44, 107);
+    color: white;
+}
+
+.card{
+    position:fixed;
+    bottom: 30px;
+    left: 20%;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 60px;
+    background-color: rgb(235, 235, 235);
+    display: flex;
+    padding: 50px;
+}
+
+.button1{
+    background-color: rgb(255, 197, 36);
+    margin: 25px;
+    width: 200px;
+    height: 50px;
+}
+
+.button2{
+    background-color: rgb(32, 36, 255);
+    color: white;
+    margin: 25px;
+    width: 200px;
+    height: 50px;
+}
+
+.button3{
+    background-color: rgb(255, 32, 80);
+    color: white;
+    margin: 25px;
+    width: 200px;
+    height: 50px;
+}
+
+
+.ant-modal-body{
+    height: 400px;
+}
+
+.eth_eth{
+    background-color: rgb(241, 241, 241) !important;
+}
+
+.loading{
+    size: 30%;
+}
