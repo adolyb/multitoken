@@ -1,6 +1,5 @@
 {
   "name": "balance",
-  "private": false,
   "version": "0.0.0",
   "homepage": "https://adolyb.github.io/multitoken/",
   "type": "module",
