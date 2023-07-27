@@ -108,6 +108,7 @@ const Balance = () =>{
 
     function clearout(){
         setAddres('')
+        localStorage.setItem('myData','')
     }
 
     const colum = [
