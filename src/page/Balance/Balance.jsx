@@ -147,18 +147,94 @@ const Balance = () =>{
         <div>
             <Table className="nonono" columns={colum} dataSource={lookaddres} pagination={false}
             summary={pageData =>{
-                let emptyCells = [];
-                let numberOfEmptyCells = colum.length - 2
-                for (let i = 0; i < numberOfEmptyCells; i++) {
-                emptyCells.push(<Table.Summary.Cell index={i+12} key={i} />);
-                }
+                let a1 = 0;
+                let a2 = 0;
+                let a3 = 0;
+                let a4 = 0;
+                let a5 = 0;
+                let a6 = 0;
+                let a7 = 0;
+                let a8 = 0;
+                let a9 = 0;
+                let a10 = 0;
+                let a11= 0;
+                let a12 = 0;
+                let a13 = 0;
+                let a14 = 0;
+                let a15 = 0;
+                let a16 = 0;
+                let a17 = 0;
+                let a18 = 0;
+
+                pageData.forEach(({
+                    eth_eth, 
+                    eth_usdc, 
+                    eth_usdt, 
+                    arb_eth, 
+                    arb_usdc, 
+                    arb_usdce, 
+                    arb_usdt, 
+                    op_eth, 
+                    op_usdc, 
+                    op_usdt, 
+                    matic_matic, 
+                    matic_usdc, 
+                    matic_usdt, 
+                    bsc_bnb, 
+                    bsc_busd, 
+                    bsc_usdt, 
+                    zksync_eth, 
+                    zksync_usdc
+                }) => {
+                    a1+=Number(eth_eth), 
+                    a2+=Number(eth_usdc), 
+                    a3+=Number(eth_usdt),
+                    a4+=Number(arb_eth),
+                    a5+=Number(arb_usdc), 
+                    a6+=Number(arb_usdce), 
+                    a7+=Number(arb_usdt),
+                    a8+=Number(op_eth),
+                    a9+=Number(op_usdc), 
+                    a10+=Number(op_usdt), 
+                    a11+=Number(matic_matic), 
+                    a12+=Number(matic_usdc),
+                    a13+=Number(matic_usdt),
+                    a14+=Number(bsc_bnb),
+                    a15+=Number(bsc_busd), 
+                    a16+=Number(bsc_usdt),
+                    a17+=Number(zksync_eth), 
+                    a18+=Number(zksync_usdc)
+                  });
+
+                // let emptyCells = [];
+                // let numberOfEmptyCells = colum.length - 2
+                // for (let i = 0; i < numberOfEmptyCells; i++) {
+                // emptyCells.push(<Table.Summary.Cell index={i+12} key={i} />);
+                // }
                 return(
                     <>
                     <Table.Summary.Row>
                         <Table.Summary.Cell className='Total' align='center'index={0}>Total总计</Table.Summary.Cell>
-                        <Table.Summary.Cell className='Total' align='center' index={5}>数据</Table.Summary.Cell>
-                        {emptyCells}
-                        <Table.Summary.Cell className='Total' align='center' index={5}>数据</Table.Summary.Cell>
+                        <Table.Summary.Cell className='Total' align='center' index={1}>{a1.toFixed(3)}</Table.Summary.Cell>
+                        <Table.Summary.Cell className='Total' align='center' index={2}>{a2.toFixed(2)}</Table.Summary.Cell>
+                        <Table.Summary.Cell className='Total' align='center' index={3}>{a3.toFixed(2)}</Table.Summary.Cell>
+                        <Table.Summary.Cell className='Total' align='center' index={4}>{a4.toFixed(3)}</Table.Summary.Cell>
+                        <Table.Summary.Cell className='Total' align='center' index={5}>{a5.toFixed(2)}</Table.Summary.Cell>
+                        <Table.Summary.Cell className='Total' align='center' index={6}>{a6.toFixed(2)}</Table.Summary.Cell>
+                        <Table.Summary.Cell className='Total' align='center' index={7}>{a7.toFixed(2)}</Table.Summary.Cell>
+                        <Table.Summary.Cell className='Total' align='center' index={8}>{a8.toFixed(3)}</Table.Summary.Cell>
+                        <Table.Summary.Cell className='Total' align='center' index={9}>{a9.toFixed(2)}</Table.Summary.Cell>
+                        <Table.Summary.Cell className='Total' align='center' index={10}>{a10.toFixed(2)}</Table.Summary.Cell>
+                        <Table.Summary.Cell className='Total' align='center' index={11}>{a11.toFixed(3)}</Table.Summary.Cell>
+                        <Table.Summary.Cell className='Total' align='center' index={12}>{a12.toFixed(2)}</Table.Summary.Cell>
+                        <Table.Summary.Cell className='Total' align='center' index={13}>{a13.toFixed(2)}</Table.Summary.Cell>
+                        <Table.Summary.Cell className='Total' align='center' index={14}>{a14.toFixed(3)}</Table.Summary.Cell>
+                        <Table.Summary.Cell className='Total' align='center' index={15}>{a15.toFixed(2)}</Table.Summary.Cell>
+                        <Table.Summary.Cell className='Total' align='center' index={16}>{a16.toFixed(2)}</Table.Summary.Cell>
+                        <Table.Summary.Cell className='Total' align='center' index={17}>{a17.toFixed(3)}</Table.Summary.Cell>
+                        <Table.Summary.Cell className='Total' align='center' index={18}>{a18.toFixed(2)}</Table.Summary.Cell>
+                        {/* {emptyCells} */}
+                        
                     </Table.Summary.Row>
                     </>
                 )
