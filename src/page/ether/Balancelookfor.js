@@ -36,13 +36,13 @@ const EthBalanceLookfor = async (address) =>{
 
 const EthUSDTLookfor = async (address) =>{
   const a = await ethUSDT.balanceOf(address)
-  const b = ethers.utils.formatEther(a)
+  const b = ethers.utils.formatEther(a,6)
   return(b)
 }
 
 const EthUSDCLookfor = async (address) =>{
   const a = await ethUSDC.balanceOf(address)
-  const b = ethers.utils.formatEther(a)
+  const b = ethers.utils.formatEther(a,6)
   return(b)
 }
 
@@ -56,19 +56,19 @@ const ArbBalanceLookfor = async (address) =>{
 
 const ArbUSDTLookfor = async (address) =>{
   const a = await arbUSDT.balanceOf(address)
-  const b = ethers.utils.formatEther(a)
+  const b = ethers.utils.formatEther(a,6)
   return(b)
 }
 
 const ArbUSDCLookfor = async (address) =>{
   const a = await arbUSDC.balanceOf(address)
-  const b = ethers.utils.formatEther(a)
+  const b = ethers.utils.formatEther(a,6)
   return(b)
 }
 
 const ArbUSDCeLookfor = async (address) =>{
   const a = await arbUSDCe.balanceOf(address)
-  const b = ethers.utils.formatEther(a)
+  const b = ethers.utils.formatEther(a,6)
   return(b)
 }
 
@@ -82,13 +82,13 @@ const OpBalanceLookfor = async (address) =>{
 
 const OpUSDTLookfor = async (address) =>{
   const a = await opUSDT.balanceOf(address)
-  const b = ethers.utils.formatEther(a)
+  const b = ethers.utils.formatUnits(a,6)
   return(b)
 }
 
 const OpUSDCLookfor = async (address) =>{
   const a = await opUSDC.balanceOf(address)
-  const b = ethers.utils.formatEther(a)
+  const b = ethers.utils.formatEther(a,6)
   return(b)
 }
 
@@ -102,13 +102,13 @@ const MaticBalanceLookfor = async (address) =>{
 
 const MaticUSDTLookfor = async (address) =>{
   const a = await maticUSDT.balanceOf(address)
-  const b = ethers.utils.formatEther(a)
+  const b = ethers.utils.formatEther(a,6)
   return(b)
 }
 
 const MaticUSDCLookfor = async (address) =>{
   const a = await maticUSDC.balanceOf(address)
-  const b = ethers.utils.formatEther(a)
+  const b = ethers.utils.formatEther(a,6)
   return(b)
 }
 
@@ -142,7 +142,7 @@ const ZksyncBalanceLookfor = async (address) =>{
 
 const ZksyncUSDCLookfor = async (address) =>{
   const a = await zksyncUSDC.balanceOf(address)
-  const b = ethers.utils.formatEther(a)
+  const b = ethers.utils.formatEther(a,6)
   return(b)
 }
 
