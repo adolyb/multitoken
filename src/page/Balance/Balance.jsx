@@ -248,7 +248,7 @@ const Balance = () =>{
                 <Button icon={<UserDeleteOutlined/>} className='button3' onClick={clearout}>删除所有地址</Button>
             </Card>
             <Modal  className='addressinput' title='请输入你的地址' open={modal1visible} onOk={modalyeseclick} onCancel={modalcanccleclick}>
-                <Input.TextArea rows={18} style={{resize:'none'}} value={addressvalue} onChange={e => setAddressValue(e.target.value)}></Input.TextArea>
+                <Input.TextArea rows={18} style={{resize:'none'}} value={addressvalue} onChange={e => setAddressValue(e.target.value)} placeholder="一行一个地址"></Input.TextArea>
             </Modal>
         </div>
     )
