@@ -9,7 +9,6 @@ const Balance = () =>{
     const [lookaddres, setAddres] = useState([]);
     const [modal1visible,modal1setVisible] = useState(false)
     const [addressvalue,setAddressValue] = useState('')
-    const [arbUSDC,setArbUSDC]=useState('')
     const showmoda = () =>{
         modal1setVisible([true])
     }
@@ -146,7 +145,27 @@ const Balance = () =>{
     ]
     return(
         <div>
-            <Table className="nonono" columns={colum} dataSource={lookaddres} pagination={false}></Table>
+            <Table className="nonono" columns={colum} dataSource={lookaddres} pagination={false}
+            summary={pageData =>{
+                let emptyCells = [];
+                let numberOfEmptyCells = colum.length - 2
+                for (let i = 0; i < numberOfEmptyCells; i++) {
+                emptyCells.push(<Table.Summary.Cell index={i+12} key={i} />);
+                }
+                return(
+                    <>
+                    <Table.Summary.Row>
+                        <Table.Summary.Cell className='Total' align='center'index={0}>Total总计</Table.Summary.Cell>
+                        <Table.Summary.Cell className='Total' align='center' index={5}>数据</Table.Summary.Cell>
+                        {emptyCells}
+                        <Table.Summary.Cell className='Total' align='center' index={5}>数据</Table.Summary.Cell>
+                    </Table.Summary.Row>
+                    </>
+                )
+            }}
+            
+            
+            ></Table>
             <Card className='card'>
                 <Button onClick={showmoda} icon={<TagOutlined/> } className='button1'>添加地址</Button>
                 <Button icon={<CiCircleOutlined/>} className='button2' onClick={refresh}>刷新所有地址</Button>

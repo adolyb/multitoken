@@ -81,3 +81,8 @@
 .loading{
     size: 30%;
 }
+
+.ant-table-summary >tr > td.Total{
+    color: blueviolet;
+    font-weight: 700;
+}
