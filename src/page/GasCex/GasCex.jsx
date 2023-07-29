@@ -22,7 +22,7 @@ const GasCex = () => {
             currentGroup = item.Chain;
             isEvenGroup = !isEvenGroup;
           }
-          return isEvenGroup ? "white" : "#F7F7F7";
+          return isEvenGroup ? "white" : "#FAFAFA";
         });
         setRowColors(colors);
       }, [data]);
