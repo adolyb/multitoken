@@ -5,13 +5,27 @@ import axios from 'axios';
 
 const GasCex = () => {
     const [cexfee, getCexfee] = useState([]);
-    const [data, setData] = useState(""); //最终要展示的表格
+    const [data, setData] = useState([]); //最终要展示的表格
     const [coin, setCoin] = useState("");
+    const [rowColors, setRowColors] = useState([]);
 
     const gasCex =async () =>{
         const response = await axios.get('https://few.tools/chaineye/getCexFee');
         return response.data
     }
+
+    useEffect(() => {
+        let currentGroup = null;
+        let isEvenGroup = false;
+        const colors = data.map((item) => {
+          if (item.Chain !== currentGroup) {
+            currentGroup = item.Chain;
+            isEvenGroup = !isEvenGroup;
+          }
+          return isEvenGroup ? "white" : "#F7F7F7";
+        });
+        setRowColors(colors);
+      }, [data]);
 
     useEffect(()=>{ //获取整张表格的数据
         const printResult = async () => {
@@ -31,14 +45,15 @@ const GasCex = () => {
               // console.log(i.WithdrawFee,i.CEX,i.Chain,'\n');
             }
           }
-          target.sort((a,b) =>{
+
+        target.sort((a,b) =>{
             if(a.Chain != b.Chain){
               return a.Chain.localeCompare(b.Chain)
-            }else{
-              return a.CEX.localeCompare(b.CEX)
+            }if(a.CEX != b.CEX){
+                return a.WithdrawFee-b.WithdrawFee
             }
-          })
-          // console.table(target);
+        })
+
           for(const i of target){
             const a ={}
             a.Asset = coin.toUpperCase()
@@ -51,14 +66,15 @@ const GasCex = () => {
             }else{
               a.WithdrawFee = i.WithdrawFee
             }
-            a.WithdrawFeeInUSDT= i.WithdrawFeeInUSDT
+            a.WithdrawFee= String(a.WithdrawFee)+"("+i.WithdrawFeeInUSDT+"u)"
+            a.MinWithdraw = i.MinWithdraw
             a.Price=i.Price
             final.push(a)
           }
         return final
     }
 
-    useEffect(() => {
+    useEffect(() => {  //根据输入的币自动找寻币进行排列
         const fetchData = () => {
             if(coin != ""){
                 const result = output(coin);
@@ -97,7 +113,7 @@ const GasCex = () => {
             </thead>
             <tbody>
             {data && data.map((item, index) => (
-                <tr key={index}>
+                <tr key={index} style={{backgroundColor: rowColors[index]}}>
                     {Object.values(item).map((value, i) => (
                         <td key={i}>{value}</td>
                     ))}
