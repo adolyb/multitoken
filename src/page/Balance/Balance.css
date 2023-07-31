@@ -131,11 +131,5 @@
 }
 
 .ant-table-container{
-    max-height: 850px;
-}
-
-.ant-table-summary{
-    background-color: aqua;
-    position: fixed;
-    margin-bottom: 0;
+    max-height: 85vh;
 }
