@@ -1,47 +1,78 @@
+.ant-table-thead{
+    height:5vh;
+}
+
+.ant-table-thead>tr>.ant-table-cell{
+    height: 3vh;
+}
+
 .ant-table-thead > tr > th.address {
     background-color: rgb(255, 255, 255);
 }
 
 .ant-table-thead > tr > th.eth {
     background-color: rgb(195, 104, 255);
+    height:4vh;
     color: white;
 }
 
 .ant-table-thead > tr > th.arb {
-    background-color: rgb(166, 93, 214);
+    background-color: rgb(181, 96, 236);
+    height:4vh;
     color: white;
 }
 
 .ant-table-thead > tr > th.op {
-    background-color: rgb(153, 82, 201);
+    background-color: rgb(167,89,218);
+    height:4vh;
     color: white;
 }
 
 .ant-table-thead > tr > th.matic {
-    background-color: rgb(133, 67, 177);
+    background-color: rgb(153, 81, 199);
+    height:4vh;
     color: white;
 }
 
 .ant-table-thead > tr > th.bsc {
-    background-color: rgb(116, 57, 155);
+    background-color: rgb(139, 74, 181);
+    height:4vh;
     color: white;
 }
 
 .ant-table-thead > tr > th.zksync {
+    background-color: rgb(125, 66, 162);
+    height:4vh;
+    color: white;
+}
+
+.ant-table-thead > tr > th.linea {
+    background-color: rgb(111, 59, 144);
+    height:4vh;
+    color: white;
+}
+
+.ant-table-thead > tr > th.zkevm {
+    background-color: rgb(97, 51, 125);
+    height:4vh;
+    color: white;
+}
+
+.ant-table-thead > tr > th.base {
     background-color: rgb(83, 44, 107);
+    height:4vh;
     color: white;
 }
 
 .card{
     position:fixed;
-    bottom: 30px;
-    left: 20%;
+    bottom: 15px;
     border-radius: 15px;
     justify-content: center;
     align-items: center;
-    width: 60%;
-    height: 60px;
-    background-color: rgb(235, 235, 235);
+    width: 100%;
+    height: 40px;
+    background-color: rgb(247, 247, 247);
     display: flex;
     padding: 50px;
 }
@@ -49,24 +80,27 @@
 .button1{
     background-color: rgb(255, 197, 36);
     margin: 25px;
-    width: 200px;
-    height: 50px;
+    width: 15vh;
+    height: 5vh;
+    font-size: small;
 }
 
 .button2{
     background-color: rgb(32, 36, 255);
     color: white;
     margin: 25px;
-    width: 200px;
-    height: 50px;
+    width: 15vh;
+    height: 5vh;
+    font-size: small;
 }
 
 .button3{
     background-color: rgb(255, 32, 80);
     color: white;
     margin: 25px;
-    width: 200px;
-    height: 50px;
+    width: 15vh;
+    height: 5vh;
+    font-size: small;
 }
 
 
@@ -74,8 +108,13 @@
     height: 400px;
 }
 
-.eth_eth{
-    background-color: rgb(241, 241, 241) !important;
+
+.ant-table-tbody .ant-table-row td.eth_eth{
+    background-color: rgb(241, 241, 241) 
+}
+
+.ant-table-thead > tr>th.eth_eth{
+    background-color: rgb(241, 241, 241)
 }
 
 .loading{
@@ -85,4 +124,18 @@
 .ant-table-summary >tr > td.Total{
     color: blueviolet;
     font-weight: 700;
+}
+
+.Tableview{
+    max-height: 50px;
+}
+
+.ant-table-container{
+    max-height: 850px;
+}
+
+.ant-table-summary{
+    background-color: aqua;
+    position: fixed;
+    margin-bottom: 0;
 }

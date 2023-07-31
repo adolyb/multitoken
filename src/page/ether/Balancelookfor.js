@@ -1,13 +1,16 @@
 import { ethers } from "ethers";
+import axios from "axios";
 
 const abi = ["function balanceOf(address _owner) view returns(uint256)"]
 
 const ethprovider = new ethers.providers.JsonRpcProvider("https://endpoints.omniatech.io/v1/eth/mainnet/public");
 const arbprovider = new ethers.providers.JsonRpcProvider("https://endpoints.omniatech.io/v1/arbitrum/one/public");
-const opprovider = new ethers.providers.JsonRpcProvider("https://endpoints.omniatech.io/v1/op/mainnet/public");
+const opprovider = new ethers.providers.JsonRpcProvider("https://rpc.ankr.com/optimism");
 const maticprovider = new ethers.providers.JsonRpcProvider("https://endpoints.omniatech.io/v1/matic/mainnet/public");
 const bscprovider = new ethers.providers.JsonRpcProvider("https://1rpc.io/bnb");
 const zksyncprovider = new ethers.providers.JsonRpcProvider("https://mainnet.era.zksync.io");
+const zkevmprovider = new ethers.providers.JsonRpcProvider("https://rpc.ankr.com/polygon_zkevm");
+const baseprovider = new ethers.providers.JsonRpcProvider("https://developer-access-mainnet.base.org");
 
 const ethUSDT = new ethers.Contract("0xdac17f958d2ee523a2206206994597c13d831ec7",abi,ethprovider);
 const ethUSDC = new ethers.Contract("0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",abi,ethprovider);
@@ -146,7 +149,35 @@ const ZksyncUSDCLookfor = async (address) =>{
   return(b)
 }
 
+const LineaBalanceLookfor = async (address) =>{
+  const body = {
+    "jsonrpc":"2.0",
+    "method":"eth_getBalance",
+    "params": [address, "latest"],
+    "id":1
+  }
+  
+  return(axios.post(`https://rpc.linea.build`, body,Headers={'Content-Type': 'application/json'})
+    .then((res) => {
+      const balanceInWei = ethers.BigNumber.from(res.data.result);
+      const balanceInEth = ethers.utils.formatUnits(balanceInWei, 'ether');
+      return(balanceInEth)
+  }))
+  
+}
+
+const ZkevmBalanceLookfor = async (address) =>{
+  const a = await zkevmprovider.getBalance(address)
+  const b = ethers.utils.formatEther(a)
+  return(b)
+}
+
+const BaseBalanceLookfor = async (address) =>{
+  const a = await baseprovider.getBalance(address)
+  const b = ethers.utils.formatEther(a)
+  return(b)
+}
 
 
 
-export{MaticBalanceLookfor,MaticUSDTLookfor,MaticUSDCLookfor,ArbBalanceLookfor,ArbUSDCLookfor,ArbUSDTLookfor,ArbUSDCeLookfor,EthBalanceLookfor,EthUSDCLookfor,EthUSDTLookfor,OpBalanceLookfor,OpUSDCLookfor,OpUSDTLookfor,BnbBalanceLookfor,BscBUSDLookfor,BscUSDTLookfor,ZksyncBalanceLookfor,ZksyncUSDCLookfor};
+export{MaticBalanceLookfor,MaticUSDTLookfor,MaticUSDCLookfor,ArbBalanceLookfor,ArbUSDCLookfor,ArbUSDTLookfor,ArbUSDCeLookfor,EthBalanceLookfor,EthUSDCLookfor,EthUSDTLookfor,OpBalanceLookfor,OpUSDCLookfor,OpUSDTLookfor,BnbBalanceLookfor,BscBUSDLookfor,BscUSDTLookfor,ZksyncBalanceLookfor,ZksyncUSDCLookfor,LineaBalanceLookfor,ZkevmBalanceLookfor,BaseBalanceLookfor};

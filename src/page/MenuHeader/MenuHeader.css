@@ -4,8 +4,8 @@
 
 .Menu{
   display: flex;
-  height:"45px";
-  line-height:"45px";
+  height: 5vh;;
+  line-height:5vh;
   justify-content:center;
   width: auto;
 }
